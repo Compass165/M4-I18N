@@ -1,0 +1,14 @@
+b1: Tạo resource Bundle - truyền tham số
+	Tạo 2 bảng en-vi
+b2: Đăng ký MessageSource trong ApplicationConfig
+b3: Sử dụng messageSource để lấy message
+	- Tiêm phụ thuộc
+	- Tạo đối tượng ResourceBundle
+b4: sử dụng Interceptor ghi lại log
+Interceptor này sẽ tự động phân tích tham số lang đi kèm các request để xác định bản địa hiện tại.
+
+Tiếp theo, bổ sung bean localeResolver để sử dụng thông tin về bản địa và sử dụng message bundle tương ứng:
+
+Ở đây, ta đã khai báo một localeResolver lấy thông tin về bản địa từ session của người dùng, đồng thời dự phòng sử dụng ngôn ngữ là “en”.
+
+Bước tiếp theo, trong template, tạo một thẻ anchor đơn giản để gửi request với tham số “lang”:

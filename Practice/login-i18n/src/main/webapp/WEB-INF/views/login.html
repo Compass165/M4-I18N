@@ -5,7 +5,10 @@
     <title th:text="#{login.title}"></title>
 </head>
 <body>
-<h1 th:text="#{login.heading}"></h1>
+<h1 th:text="#{login.heading}"></h1><br>
+
+<span th:text="${hello}"></span> <br>
+
 Language: <a href="?lang=en">English</a> | <a href="?lang=vi">VN</a>
 <form th:action="@{/doLogin}" th:object="${user}" method="post">
   <table>

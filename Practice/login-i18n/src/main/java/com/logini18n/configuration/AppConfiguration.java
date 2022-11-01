@@ -1,5 +1,6 @@
 package com.logini18n.configuration;
 
+import com.logini18n.intercepter.LogInterceptor;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -59,6 +60,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         viewResolver.setCharacterEncoding("UTF-8");
         return viewResolver;
     }
+    //Đăng ký cấu hình MessageSource
     @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -71,6 +73,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
         interceptor.setParamName("lang");
         registry.addInterceptor(interceptor);
+        registry.addInterceptor(new LogInterceptor());
     }
     @Bean
     public LocaleResolver localeResolver(){
